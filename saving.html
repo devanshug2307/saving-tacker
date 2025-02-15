@@ -15,170 +15,288 @@
       body {
         font-family: "Segoe UI", Arial, sans-serif;
         text-align: center;
-        background: #fff5f7; /* Soft pink background */
+        background: linear-gradient(135deg, #fff5f7 0%, #ffe4e9 100%);
         padding: 20px;
+        min-height: 100vh;
+        margin: 0;
       }
       .container {
         width: 95%;
         max-width: 800px;
         margin: auto;
-        background: white;
-        padding: 15px;
-        border-radius: 20px;
-        box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.08);
+        background: rgba(255, 255, 255, 0.95);
+        padding: 25px;
+        border-radius: 30px;
+        box-shadow: 0 10px 30px rgba(255, 77, 141, 0.15);
+        backdrop-filter: blur(10px);
+        transition: transform 0.3s ease;
+      }
+      .container:hover {
+        transform: translateY(-5px);
       }
       .savings-header {
         text-align: center;
         margin-bottom: 30px;
-        padding: 15px;
+        padding: 20px;
         position: relative;
+        background: linear-gradient(135deg, #ff4d8d 0%, #ff6b9c 100%);
+        border-radius: 20px;
+        box-shadow: 0 5px 15px rgba(255, 77, 141, 0.2);
       }
       .savings-header h2 {
-        color: #ff4d8d;
-        font-size: 28px;
+        color: white;
+        font-size: 32px;
         font-weight: 700;
         margin: 0;
         padding: 10px 0;
         text-transform: uppercase;
-        letter-spacing: 1px;
-        position: relative;
-        display: inline-block;
+        letter-spacing: 2px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
       }
-      .savings-header h2::after {
-        content: "";
+      .savings-header::before {
+        content: "💰";
+        font-size: 24px;
         position: absolute;
-        bottom: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 60%;
-        height: 3px;
-        background: linear-gradient(to right, #ffd1dc, #ff4d8d, #ffd1dc);
-        border-radius: 2px;
+        left: 20px;
+        top: 50%;
+        transform: translateY(-50%);
       }
       .input-container {
         display: flex;
         flex-wrap: wrap;
-        gap: 10px;
+        gap: 15px;
         justify-content: center;
-        margin: 15px 0;
+        margin: 25px 0;
+        padding: 0 15px;
       }
-      .input-container select,
-      .input-container input,
-      .input-container button {
-        min-width: 140px;
-        padding: 10px 15px;
-        border: 2px solid #ffd1dc;
-        border-radius: 25px;
+      .input-container input {
+        flex: 1;
+        min-width: 200px;
+        padding: 15px 25px;
+        border: 2px solid rgba(255, 77, 141, 0.2);
+        border-radius: 30px;
         outline: none;
+        font-size: 16px;
         transition: all 0.3s ease;
+        background: white;
       }
-      .input-container input:focus,
-      .input-container select:focus {
+      .input-container input:focus {
         border-color: #ff4d8d;
-        box-shadow: 0 0 0 3px rgba(255, 77, 141, 0.1);
-      }
-      .input-container select option {
-        padding: 10px;
+        box-shadow: 0 0 0 4px rgba(255, 77, 141, 0.1);
       }
       .grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
-        gap: 8px;
-        padding: 10px;
-        margin: 20px auto;
+        grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
+        gap: 12px;
+        padding: 20px;
+        margin: 30px auto;
+        background: rgba(255, 255, 255, 0.5);
+        border-radius: 20px;
+        box-shadow: inset 0 0 15px rgba(255, 77, 141, 0.1);
       }
       .grid-cell {
-        background-color: white;
-        border: 2px solid #ffd1dc;
-        border-radius: 12px;
-        padding: 10px 5px;
+        background: white;
+        border: none;
+        border-radius: 15px;
+        padding: 15px 10px;
         cursor: pointer;
         text-align: center;
         transition: all 0.3s ease;
-        min-height: 40px;
+        min-height: 50px;
         display: flex;
         align-items: center;
         justify-content: center;
-        font-weight: 500;
+        font-weight: 600;
+        font-size: 16px;
+        box-shadow: 0 3px 10px rgba(255, 77, 141, 0.1);
+        position: relative;
+        overflow: hidden;
       }
       .grid-cell:hover {
-        background-color: #fff5f7;
-        transform: translateY(-2px);
-        box-shadow: 0 2px 8px rgba(255, 77, 141, 0.1);
+        transform: translateY(-3px) scale(1.02);
+        box-shadow: 0 5px 15px rgba(255, 77, 141, 0.2);
       }
       .grid-cell.saved {
-        background-color: #ff4d8d;
+        background: linear-gradient(135deg, #ff4d8d 0%, #ff6b9c 100%);
         color: white;
-        border-color: #ff4d8d;
+        animation: savePop 0.3s ease;
+      }
+      @keyframes savePop {
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.1);
+        }
+        100% {
+          transform: scale(1);
+        }
       }
       .message {
         color: #ff4d8d;
-        font-size: 16px;
+        font-size: 18px;
         font-weight: 600;
-        padding: 15px;
-        margin: 15px 0;
+        padding: 20px;
+        margin: 25px 0;
         background: rgba(255, 209, 220, 0.2);
-        border-radius: 15px;
-        line-height: 1.5;
+        border-radius: 20px;
+        line-height: 1.6;
+        border-left: 5px solid #ff4d8d;
+        animation: slideIn 0.5s ease;
       }
-      button {
-        cursor: pointer;
-        background-color: #ff4d8d;
-        color: white;
-        border: none;
-        border-radius: 25px;
-        padding: 12px 25px;
-        font-size: 14px;
-        font-weight: 600;
-        transition: all 0.3s ease;
-        box-shadow: 0 3px 10px rgba(255, 77, 141, 0.2);
-      }
-      button:hover {
-        background-color: #ff3377;
-        transform: translateY(-2px);
-        box-shadow: 0 5px 15px rgba(255, 77, 141, 0.3);
+      @keyframes slideIn {
+        from {
+          transform: translateX(-20px);
+          opacity: 0;
+        }
+        to {
+          transform: translateX(0);
+          opacity: 1;
+        }
       }
       .progress-section {
-        margin: 25px auto;
+        margin: 35px auto;
         max-width: 600px;
-        padding: 15px;
-        background: rgba(255, 209, 220, 0.1);
-        border-radius: 15px;
+        padding: 25px;
+        background: white;
+        border-radius: 25px;
+        box-shadow: 0 5px 20px rgba(255, 77, 141, 0.1);
       }
       .progress-bar-container {
-        width: 90%;
-        max-width: 500px;
-        height: 12px;
-        background-color: white;
+        width: 100%;
+        height: 15px;
+        background: rgba(255, 209, 220, 0.3);
         border-radius: 10px;
         margin: 15px auto;
         overflow: hidden;
-        box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+        position: relative;
       }
       .progress-bar {
         height: 100%;
-        background: linear-gradient(to right, #ff4d8d, #ff3377);
-        transition: width 0.5s ease;
-        width: 0%;
+        background: linear-gradient(to right, #ff4d8d, #ff6b9c);
+        border-radius: 10px;
+        transition: width 0.8s ease;
+        position: relative;
+        overflow: hidden;
+      }
+      .progress-bar::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(
+          90deg,
+          rgba(255, 255, 255, 0) 0%,
+          rgba(255, 255, 255, 0.3) 50%,
+          rgba(255, 255, 255, 0) 100%
+        );
+        animation: shimmer 2s infinite;
+      }
+      @keyframes shimmer {
+        0% {
+          transform: translateX(-100%);
+        }
+        100% {
+          transform: translateX(100%);
+        }
       }
       .progress-text {
         color: #ff4d8d;
-        font-size: 14px;
+        font-size: 16px;
         font-weight: 600;
         text-align: center;
-        margin: 10px 0;
+        margin: 15px 0;
+        text-shadow: 0 1px 2px rgba(255, 77, 141, 0.1);
       }
-      @media print {
-        body {
-          background: white !important;
+      .chat-container {
+        max-width: 600px;
+        margin: 30px auto;
+        padding: 20px;
+        background: white;
+        border-radius: 25px;
+        box-shadow: 0 5px 20px rgba(255, 77, 141, 0.1);
+      }
+      .chat-message {
+        margin: 15px 0;
+        padding: 15px 20px;
+        border-radius: 20px;
+        max-width: 85%;
+        position: relative;
+        animation: messageSlide 0.3s ease;
+      }
+      @keyframes messageSlide {
+        from {
+          transform: translateY(20px);
+          opacity: 0;
         }
-        .container {
-          box-shadow: none;
+        to {
+          transform: translateY(0);
+          opacity: 1;
         }
-        button,
-        input,
-        select {
-          display: none;
+      }
+      .ai-message {
+        background: linear-gradient(135deg, #ffd1dc 0%, #ffe4e9 100%);
+        margin-right: auto;
+        color: #ff4d8d;
+        border-bottom-left-radius: 5px;
+      }
+      .user-message {
+        background: linear-gradient(135deg, #ff4d8d 0%, #ff6b9c 100%);
+        color: white;
+        margin-left: auto;
+        border-bottom-right-radius: 5px;
+      }
+      .button-container {
+        display: flex;
+        gap: 15px;
+        justify-content: center;
+        margin: 30px 0;
+      }
+      button {
+        cursor: pointer;
+        background: linear-gradient(135deg, #ff4d8d 0%, #ff6b9c 100%);
+        color: white;
+        border: none;
+        border-radius: 30px;
+        padding: 15px 30px;
+        font-size: 16px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        box-shadow: 0 5px 15px rgba(255, 77, 141, 0.2);
+        position: relative;
+        overflow: hidden;
+      }
+      button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(255, 77, 141, 0.3);
+      }
+      button:active {
+        transform: translateY(1px);
+      }
+      .voice-btn {
+        width: 50px !important;
+        height: 50px !important;
+        padding: 0 !important;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 20px;
+        border-radius: 50% !important;
+      }
+      .voice-btn.listening {
+        animation: pulseRing 1.5s infinite;
+      }
+      @keyframes pulseRing {
+        0% {
+          box-shadow: 0 0 0 0 rgba(255, 77, 141, 0.5);
+        }
+        70% {
+          box-shadow: 0 0 0 15px rgba(255, 77, 141, 0);
+        }
+        100% {
+          box-shadow: 0 0 0 0 rgba(255, 77, 141, 0);
         }
       }
       .share-container {
@@ -251,98 +369,6 @@
           padding: 8px;
         }
       }
-      .button-container {
-        display: flex;
-        gap: 10px;
-        justify-content: center;
-        margin: 20px 0;
-      }
-      .button-container button {
-        background-color: #ff4d8d;
-        color: white;
-        border: none;
-        border-radius: 25px;
-        padding: 10px 20px;
-        cursor: pointer;
-        font-weight: 600;
-        transition: all 0.3s ease;
-      }
-      .button-container button:hover {
-        background-color: #ff3377;
-        transform: translateY(-2px);
-      }
-      .chat-container {
-        max-width: 600px;
-        margin: 20px auto;
-        padding: 15px;
-        background: white;
-        border-radius: 15px;
-        box-shadow: 0 2px 10px rgba(255, 77, 141, 0.1);
-      }
-      .chat-message {
-        margin: 10px 0;
-        padding: 12px 15px;
-        border-radius: 15px;
-        max-width: 80%;
-      }
-      .ai-message {
-        background: #ffd1dc;
-        margin-right: auto;
-        color: #ff4d8d;
-      }
-      .user-message {
-        background: #ff4d8d;
-        color: white;
-        margin-left: auto;
-      }
-      .typing-indicator {
-        display: none;
-        padding: 12px 15px;
-        background: #ffd1dc;
-        border-radius: 15px;
-        margin: 10px 0;
-        width: fit-content;
-        color: #ff4d8d;
-      }
-      .typing-indicator span {
-        animation: blink 1s infinite;
-        margin-right: 3px;
-      }
-      @keyframes blink {
-        50% {
-          opacity: 0;
-        }
-      }
-      .voice-btn {
-        min-width: 40px !important;
-        width: 40px;
-        height: 40px;
-        border-radius: 50% !important;
-        padding: 0 !important;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background-color: #ff4d8d;
-        transition: all 0.3s ease;
-      }
-      .voice-btn.listening {
-        background-color: #ff3377;
-        animation: pulse 1.5s infinite;
-      }
-      @keyframes pulse {
-        0% {
-          transform: scale(1);
-          box-shadow: 0 0 0 0 rgba(255, 77, 141, 0.4);
-        }
-        70% {
-          transform: scale(1.1);
-          box-shadow: 0 0 0 10px rgba(255, 77, 141, 0);
-        }
-        100% {
-          transform: scale(1);
-          box-shadow: 0 0 0 0 rgba(255, 77, 141, 0);
-        }
-      }
       .clear-chat-btn {
         background-color: #ff4d8d;
         color: white;
@@ -366,39 +392,636 @@
       .clear-chat-btn i {
         font-size: 12px;
       }
+      .color-picker-container {
+        margin-top: 30px;
+        border-top: 2px dashed rgba(255, 77, 141, 0.2);
+        padding-top: 30px;
+      }
+      .color-picker-title {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+        margin-bottom: 25px;
+      }
+      .color-picker-title i {
+        font-size: 24px;
+        margin-bottom: 10px;
+        color: #ff4d8d;
+      }
+      .color-picker-subtitle {
+        font-size: 14px;
+        color: #666;
+        margin-top: 5px;
+        font-weight: normal;
+        text-transform: none;
+      }
+      .color-type-switch {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        margin-bottom: 25px;
+        padding: 5px;
+        background: rgba(255, 77, 141, 0.1);
+        border-radius: 20px;
+        padding: 5px;
+      }
+      .color-type-btn {
+        padding: 12px 25px;
+        border: none;
+        border-radius: 15px;
+        background: transparent;
+        color: #ff4d8d;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-weight: 600;
+        font-size: 14px;
+        position: relative;
+        z-index: 1;
+      }
+      .color-type-btn.active {
+        background: white;
+        color: #ff4d8d;
+        box-shadow: 0 3px 10px rgba(255, 77, 141, 0.15);
+      }
+      .color-type-btn:hover:not(.active) {
+        background: rgba(255, 255, 255, 0.5);
+      }
+      .color-options {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+        gap: 15px;
+        justify-content: center;
+        margin: 25px 0;
+        padding: 10px;
+        background: rgba(255, 255, 255, 0.5);
+        border-radius: 20px;
+      }
+      .color-option {
+        width: 50px;
+        height: 50px;
+        border-radius: 15px;
+        cursor: pointer;
+        border: 3px solid transparent;
+        transition: all 0.3s ease;
+        position: relative;
+        margin: auto;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+      }
+      .color-option:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      }
+      .color-option.selected {
+        border-color: #ff4d8d;
+        transform: scale(1.1);
+      }
+      .color-option.selected::after {
+        content: "✓";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+        font-size: 20px;
+        text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+      }
+      .custom-color-input {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
+        margin-top: 20px;
+        padding: 15px;
+        background: rgba(255, 255, 255, 0.5);
+        border-radius: 20px;
+      }
+      .custom-color-input input[type="color"] {
+        width: 70px;
+        height: 40px;
+        padding: 5px;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        background: white;
+        box-shadow: 0 3px 10px rgba(255, 77, 141, 0.1);
+        transition: all 0.3s ease;
+      }
+      .custom-color-input input[type="color"]:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(255, 77, 141, 0.2);
+      }
+      .custom-color-input label {
+        font-size: 14px;
+        font-weight: 600;
+        color: #ff4d8d;
+        background: white;
+        padding: 10px 20px;
+        border-radius: 15px;
+        box-shadow: 0 3px 10px rgba(255, 77, 141, 0.1);
+      }
+      .color-preview {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        padding: 15px 25px;
+        background: white;
+        border-radius: 15px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        z-index: 1000;
+        animation: slideUp 0.3s ease;
+      }
+      @keyframes slideUp {
+        from {
+          transform: translateY(100%);
+          opacity: 0;
+        }
+        to {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+      .color-preview-box {
+        width: 30px;
+        height: 30px;
+        border-radius: 8px;
+      }
+      .color-preview-text {
+        font-size: 14px;
+        font-weight: 600;
+        color: #666;
+      }
+      .welcome-section {
+        background: white;
+        border-radius: 30px;
+        padding: 30px;
+        margin-bottom: 30px;
+        box-shadow: 0 10px 30px rgba(255, 77, 141, 0.15);
+      }
+
+      .welcome-header {
+        text-align: center;
+        margin-bottom: 30px;
+      }
+
+      .welcome-header h1 {
+        color: #ff4d8d;
+        font-size: 36px;
+        margin-bottom: 10px;
+      }
+
+      .welcome-subtitle {
+        color: #666;
+        font-size: 18px;
+        margin: 0;
+      }
+
+      .quick-start-section {
+        padding: 20px;
+        background: rgba(255, 245, 247, 0.5);
+        border-radius: 20px;
+      }
+
+      .guide-header {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 30px;
+      }
+
+      .guide-header i {
+        font-size: 24px;
+        color: #ff4d8d;
+      }
+
+      .guide-header h3 {
+        color: #ff4d8d;
+        font-size: 24px;
+        margin: 0;
+      }
+
+      .guide-subtitle {
+        color: #666;
+        font-size: 14px;
+        margin: 0;
+      }
+
+      .steps-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+      }
+
+      .step {
+        background: white;
+        padding: 20px;
+        border-radius: 15px;
+        box-shadow: 0 5px 15px rgba(255, 77, 141, 0.1);
+        display: flex;
+        align-items: flex-start;
+        gap: 15px;
+      }
+
+      .step-icon {
+        width: 48px;
+        height: 48px;
+        min-width: 48px;
+        background: #ff4d8d;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 24px;
+      }
+
+      .step-content {
+        flex: 1;
+      }
+
+      .step-content h4 {
+        color: #ff4d8d;
+        margin: 0 0 8px 0;
+        font-size: 18px;
+      }
+
+      .step-content p {
+        color: #666;
+        margin: 0;
+        font-size: 14px;
+        line-height: 1.4;
+      }
+
+      @media screen and (max-width: 768px) {
+        .steps-container {
+          grid-template-columns: 1fr;
+        }
+
+        .step {
+          padding: 15px;
+        }
+
+        .step-icon {
+          width: 40px;
+          height: 40px;
+          min-width: 40px;
+          font-size: 20px;
+        }
+      }
+
+      [data-tooltip] {
+        position: relative;
+        cursor: help;
+      }
+
+      [data-tooltip]:hover::after {
+        content: attr(data-tooltip);
+        position: absolute;
+        bottom: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        background: rgba(0, 0, 0, 0.8);
+        color: white;
+        padding: 8px 12px;
+        border-radius: 6px;
+        font-size: 14px;
+        white-space: nowrap;
+        z-index: 1000;
+      }
+
+      .grid-cell {
+        position: relative;
+      }
+
+      .grid-cell:hover::after {
+        content: "Click to mark as saved";
+        position: absolute;
+        bottom: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        background: rgba(0, 0, 0, 0.8);
+        color: white;
+        padding: 8px 12px;
+        border-radius: 6px;
+        font-size: 12px;
+        white-space: nowrap;
+        z-index: 1000;
+      }
+
+      .grid-cell.saved:hover::after {
+        content: "Click to unmark";
+      }
+
+      .input-container {
+        position: relative;
+      }
+
+      .input-container::before {
+        content: "💭";
+        position: absolute;
+        left: 25px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 20px;
+        z-index: 1;
+      }
+
+      .input-container input {
+        padding-left: 55px;
+      }
+
+      .voice-btn {
+        position: relative;
+      }
+
+      .voice-btn:hover::after {
+        content: "Use voice input";
+        position: absolute;
+        bottom: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        background: rgba(0, 0, 0, 0.8);
+        color: white;
+        padding: 8px 12px;
+        border-radius: 6px;
+        font-size: 12px;
+        white-space: nowrap;
+        z-index: 1000;
+        margin-bottom: 5px;
+      }
+
+      .chat-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 20px;
+        background: rgba(255, 77, 141, 0.1);
+        border-radius: 15px 15px 0 0;
+        margin-bottom: 15px;
+      }
+
+      .chat-header h3 {
+        color: #ff4d8d;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .example-prompts {
+        margin-top: 15px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .example-prompt {
+        background: rgba(255, 255, 255, 0.5);
+        padding: 10px 15px;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-size: 14px;
+        color: #ff4d8d;
+      }
+
+      .example-prompt:hover {
+        background: rgba(255, 255, 255, 0.8);
+        transform: translateX(5px);
+      }
+
+      .typing-indicator {
+        padding: 10px;
+        display: none;
+      }
+
+      .typing-indicator span {
+        display: inline-block;
+        width: 8px;
+        height: 8px;
+        background: #ff4d8d;
+        border-radius: 50%;
+        margin: 0 3px;
+        animation: typing 1s infinite;
+      }
+
+      .typing-indicator span:nth-child(2) {
+        animation-delay: 0.2s;
+      }
+
+      .typing-indicator span:nth-child(3) {
+        animation-delay: 0.4s;
+      }
+
+      @keyframes typing {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-5px);
+        }
+      }
+
+      .shape-picker-container {
+        margin-top: 30px;
+        border-top: 2px dashed rgba(255, 77, 141, 0.2);
+        padding-top: 30px;
+      }
+
+      .shape-picker-title {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+        margin-bottom: 25px;
+      }
+
+      .shape-picker-title i {
+        font-size: 24px;
+        margin-bottom: 10px;
+        color: #ff4d8d;
+      }
+
+      .shape-picker-subtitle {
+        font-size: 14px;
+        color: #666;
+        margin-top: 5px;
+        font-weight: normal;
+        text-transform: none;
+      }
+
+      .shape-options {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+        justify-content: center;
+        margin: 20px 0;
+      }
+
+      .shape-btn {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+        padding: 15px 25px;
+        border: 2px solid transparent;
+        border-radius: 15px;
+        background: white;
+        color: #ff4d8d;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 3px 10px rgba(255, 77, 141, 0.1);
+      }
+
+      .shape-btn i {
+        font-size: 24px;
+      }
+
+      .shape-btn span {
+        font-size: 14px;
+        font-weight: 600;
+      }
+
+      .shape-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(255, 77, 141, 0.2);
+      }
+
+      .shape-btn.active {
+        border-color: #ff4d8d;
+        background: rgba(255, 77, 141, 0.1);
+      }
+
+      /* Shape Classes for Grid Cells */
+      .grid-cell.circle {
+        border-radius: 50%;
+      }
+
+      .grid-cell.envelope {
+        clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 50% 100%, 0% 75%);
+      }
+
+      .grid-cell.star {
+        clip-path: polygon(
+          50% 0%,
+          61% 35%,
+          98% 35%,
+          68% 57%,
+          79% 91%,
+          50% 70%,
+          21% 91%,
+          32% 57%,
+          2% 35%,
+          39% 35%
+        );
+      }
+
+      .grid-cell.heart {
+        clip-path: path(
+          "M12 4.248c-3.148-5.402-12-3.825-12 2.944 0 4.661 5.571 9.427 12 15.808 6.43-6.381 12-11.147 12-15.808 0-6.792-8.875-8.306-12-2.944z"
+        );
+      }
+
+      /* Adjust hover effects for shaped cells */
+      .grid-cell.circle:hover,
+      .grid-cell.envelope:hover,
+      .grid-cell.star:hover,
+      .grid-cell.heart:hover {
+        transform: translateY(-3px) scale(1.05);
+      }
     </style>
   </head>
   <body>
     <div class="savings-tracker-container">
       <div class="container">
-        <div class="savings-header">
-          <h2>Savings Tracker</h2>
-        </div>
-        <div class="chat-container" id="chatContainer">
-          <button onclick="clearChat()" class="clear-chat-btn">
-            <i class="fas fa-trash"></i> Clear Chat
-          </button>
-          <div id="chatMessages">
-            <div class="chat-message ai-message">
-              Hi! I'm SynAI 👋 I'm here to help you save money and achieve your
-              financial goals! What would you like to save for?
+        <div class="welcome-section">
+          <div class="welcome-header">
+            <h1>Welcome to Savings Tracker</h1>
+            <p class="welcome-subtitle">
+              Your personal AI-powered assistant to help you save money
+              effectively
+            </p>
+          </div>
+          <div class="quick-start-section">
+            <div class="guide-header">
+              <i class="fas fa-rocket"></i>
+              <h3>Quick Start Guide</h3>
+              <p class="guide-subtitle">Three simple steps to start saving</p>
+            </div>
+            <div class="steps-container">
+              <div class="step">
+                <div class="step-icon">
+                  <i class="fas fa-comments-dollar"></i>
+                </div>
+                <div class="step-content">
+                  <h4>Tell Me Your Goal</h4>
+                  <p>
+                    Type or say something like "I want to save $1000 in 50 days"
+                    - I'll create your daily saving plan instantly!
+                  </p>
+                </div>
+              </div>
+              <div class="step">
+                <div class="step-icon">
+                  <i class="fas fa-calendar-check"></i>
+                </div>
+                <div class="step-content">
+                  <h4>Save Daily</h4>
+                  <p>
+                    Your grid will show how much to save each day. Just click a
+                    box to mark it as saved - it's that easy!
+                  </p>
+                </div>
+              </div>
+              <div class="step">
+                <div class="step-icon">
+                  <i class="fas fa-chart-line"></i>
+                </div>
+                <div class="step-content">
+                  <h4>Watch Your Progress</h4>
+                  <p>
+                    See your savings grow in real-time with the progress bar.
+                    Customize colors to make it your own!
+                  </p>
+                </div>
+              </div>
+              <div class="step">
+                <div class="step-icon">
+                  <i class="fas fa-file-download"></i>
+                </div>
+                <div class="step-content">
+                  <h4>Download Your Plan</h4>
+                  <p>
+                    Get a beautifully formatted PDF of your savings plan to
+                    track offline or share with others!
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="typing-indicator" id="typingIndicator">
-            <span>•</span><span>•</span><span>•</span>
-          </div>
         </div>
-        <div class="input-container">
+        <div class="savings-header">
+          <h2>Start Your Savings Journey</h2>
+        </div>
+        <div
+          class="input-container"
+          data-tooltip="Type your savings goal or use voice input"
+        >
           <input
             type="text"
             id="savingGoal"
-            placeholder="Tell me your saving goal..."
+            placeholder="Tell me your saving goal... (e.g., 'I want to save $1000 in 50 days')"
             onkeypress="handleKeyPress(event)"
           />
           <button
             id="voiceInputBtn"
             onclick="toggleVoiceInput()"
             class="voice-btn"
+            data-tooltip="Click to use voice input"
           >
             <i class="fas fa-microphone"></i>
           </button>
@@ -412,6 +1035,8 @@
             <div class="progress-bar" id="progressBar"></div>
           </div>
         </div>
+
+        <!-- Grid Section -->
         <div class="grid" id="grid"></div>
         <div class="button-container">
           <button onclick="downloadPDF()">Download PDF</button>
@@ -421,11 +1046,267 @@
             Copy Link
           </button>
         </div>
+
+        <!-- Chat Section -->
+        <div class="chat-container" id="chatContainer">
+          <div class="chat-header">
+            <h3><i class="fas fa-robot"></i> Your Savings Assistant</h3>
+            <button
+              onclick="clearChat()"
+              class="clear-chat-btn"
+              data-tooltip="Clear conversation history"
+            >
+              <i class="fas fa-trash"></i> Clear Chat
+            </button>
+          </div>
+          <div id="chatMessages">
+            <div class="chat-message ai-message">
+              Hi! I'm your savings assistant 👋 I'm here to help you save money
+              and achieve your financial goals! Try saying something like:
+              <div class="example-prompts">
+                <div class="example-prompt" onclick="useExample(this)">
+                  I want to save $1000 in 50 days
+                </div>
+                <div class="example-prompt" onclick="useExample(this)">
+                  Help me save $500 in 30 days with max $20 per day
+                </div>
+                <div class="example-prompt" onclick="useExample(this)">
+                  I need to save for a vacation
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="typing-indicator" id="typingIndicator">
+            <span>•</span><span>•</span><span>•</span>
+          </div>
+        </div>
+
+        <!-- Customization Section -->
+        <div class="color-picker-container">
+          <div class="color-picker-title">
+            <i class="fas fa-paint-brush"></i> Customize Your Grid
+            <div class="color-picker-subtitle">
+              Personalize the colors of your savings grid
+            </div>
+          </div>
+          <div class="color-type-switch">
+            <button
+              class="color-type-btn active"
+              onclick="switchColorType('unsaved')"
+            >
+              <i class="fas fa-square"></i> Unsaved Cells
+            </button>
+            <button class="color-type-btn" onclick="switchColorType('saved')">
+              <i class="fas fa-check-square"></i> Saved Cells
+            </button>
+          </div>
+          <div class="color-options">
+            <div
+              class="color-option"
+              style="background: #ffd1dc"
+              onclick="selectColor('#ffd1dc')"
+              data-color="#ffd1dc"
+            ></div>
+            <div
+              class="color-option"
+              style="background: #ff4d8d"
+              onclick="selectColor('#ff4d8d')"
+              data-color="#ff4d8d"
+            ></div>
+            <div
+              class="color-option"
+              style="background: #4caf50"
+              onclick="selectColor('#4CAF50')"
+              data-color="#4CAF50"
+            ></div>
+            <div
+              class="color-option"
+              style="background: #2196f3"
+              onclick="selectColor('#2196F3')"
+              data-color="#2196F3"
+            ></div>
+            <div
+              class="color-option"
+              style="background: #9c27b0"
+              onclick="selectColor('#9C27B0')"
+              data-color="#9C27B0"
+            ></div>
+            <div
+              class="color-option"
+              style="background: #ff9800"
+              onclick="selectColor('#FF9800')"
+              data-color="#FF9800"
+            ></div>
+          </div>
+          <div class="custom-color-input">
+            <input
+              type="color"
+              id="customColor"
+              onchange="selectColor(this.value)"
+              value="#ff4d8d"
+            />
+            <label for="customColor">
+              <i class="fas fa-paint-brush"></i> Custom Color
+            </label>
+          </div>
+        </div>
+
+        <!-- Shape Selector Section -->
+        <div class="shape-picker-container">
+          <div class="shape-picker-title">
+            <i class="fas fa-shapes"></i> Choose Grid Shape
+            <div class="shape-picker-subtitle">
+              Select different shapes for your savings grid cells
+            </div>
+          </div>
+          <div class="shape-options">
+            <button
+              class="shape-btn active"
+              data-shape="square"
+              onclick="selectShape('square')"
+            >
+              <i class="fas fa-square"></i>
+              <span>Square</span>
+            </button>
+            <button
+              class="shape-btn"
+              data-shape="circle"
+              onclick="selectShape('circle')"
+            >
+              <i class="fas fa-circle"></i>
+              <span>Circle</span>
+            </button>
+            <button
+              class="shape-btn"
+              data-shape="envelope"
+              onclick="selectShape('envelope')"
+            >
+              <i class="fas fa-envelope"></i>
+              <span>Envelope</span>
+            </button>
+            <button
+              class="shape-btn"
+              data-shape="star"
+              onclick="selectShape('star')"
+            >
+              <i class="fas fa-star"></i>
+              <span>Star</span>
+            </button>
+            <button
+              class="shape-btn"
+              data-shape="heart"
+              onclick="selectShape('heart')"
+            >
+              <i class="fas fa-heart"></i>
+              <span>Heart</span>
+            </button>
+          </div>
+        </div>
+        <div id="colorPreview" class="color-preview" style="display: none">
+          <div class="color-preview-box" id="colorPreviewBox"></div>
+          <div class="color-preview-text" id="colorPreviewText"></div>
+        </div>
       </div>
     </div>
     <script>
       let recognition = null;
       let isListening = false;
+      let currentColorType = "unsaved";
+      let gridColors = {
+        saved: "#ff4d8d",
+        unsaved: "#ffd1dc",
+      };
+      let currentShape = "square";
+
+      // Load saved colors from localStorage
+      function loadSavedColors() {
+        const savedColors = localStorage.getItem("gridColors");
+        if (savedColors) {
+          gridColors = JSON.parse(savedColors);
+          updateGridColors();
+        }
+      }
+
+      // Save colors to localStorage
+      function saveColors() {
+        localStorage.setItem("gridColors", JSON.stringify(gridColors));
+      }
+
+      // Switch between saved and unsaved color selection
+      function switchColorType(type) {
+        currentColorType = type;
+        document.querySelectorAll(".color-type-btn").forEach((btn) => {
+          btn.classList.toggle(
+            "active",
+            btn.textContent.toLowerCase().includes(type)
+          );
+        });
+
+        // Update selected state in color options
+        document.querySelectorAll(".color-option").forEach((option) => {
+          const color = option.getAttribute("data-color");
+          option.classList.toggle(
+            "selected",
+            color === gridColors[currentColorType]
+          );
+        });
+
+        // Update custom color input
+        document.getElementById("customColor").value =
+          gridColors[currentColorType];
+      }
+
+      // Select a color and apply it to the grid
+      function selectColor(color) {
+        gridColors[currentColorType] = color;
+
+        // Update selected state in color options
+        document.querySelectorAll(".color-option").forEach((option) => {
+          option.classList.toggle(
+            "selected",
+            option.getAttribute("data-color") === color
+          );
+        });
+
+        updateGridColors();
+        saveColors();
+        showColorPreview(color);
+
+        // Add ripple effect to selected color option
+        const selectedOption = document.querySelector(
+          `.color-option[data-color="${color}"]`
+        );
+        if (selectedOption) {
+          const ripple = document.createElement("div");
+          ripple.className = "ripple";
+          selectedOption.appendChild(ripple);
+          setTimeout(() => ripple.remove(), 1000);
+        }
+      }
+
+      // Update grid colors based on current selection
+      function updateGridColors() {
+        const style = document.createElement("style");
+        style.textContent = `
+          .grid-cell {
+            background-color: ${gridColors.unsaved} !important;
+            border-color: ${gridColors.unsaved} !important;
+          }
+          .grid-cell.saved {
+            background-color: ${gridColors.saved} !important;
+            border-color: ${gridColors.saved} !important;
+          }
+        `;
+
+        // Remove any existing custom styles
+        const existingStyle = document.getElementById("gridColorStyles");
+        if (existingStyle) {
+          existingStyle.remove();
+        }
+
+        style.id = "gridColorStyles";
+        document.head.appendChild(style);
+      }
 
       function initSpeechRecognition() {
         if ("webkitSpeechRecognition" in window) {
@@ -689,6 +1570,47 @@
         }
       }
 
+      function useExample(element) {
+        const text = element.textContent.trim();
+        document.getElementById("savingGoal").value = text;
+        handleKeyPress({ key: "Enter" });
+      }
+
+      function clearChat() {
+        // Clear all messages
+        const chatMessages = document.getElementById("chatMessages");
+        chatMessages.innerHTML = "";
+
+        // Add back the initial greeting with examples
+        const greeting = document.createElement("div");
+        greeting.className = "chat-message ai-message";
+        greeting.innerHTML = `
+          Hi! I'm your savings assistant 👋 I'm here to help you save money and achieve your financial goals! Try saying something like:
+          <div class="example-prompts">
+            <div class="example-prompt" onclick="useExample(this)">I want to save $1000 in 50 days</div>
+            <div class="example-prompt" onclick="useExample(this)">Help me save $500 in 30 days with max $20 per day</div>
+            <div class="example-prompt" onclick="useExample(this)">I need to save for a vacation</div>
+          </div>
+        `;
+        chatMessages.appendChild(greeting);
+
+        // Clear the input field
+        document.getElementById("savingGoal").value = "";
+
+        // Reset any active states
+        if (isListening) {
+          stopVoiceInput();
+        }
+
+        // Hide typing indicator if visible
+        document.getElementById("typingIndicator").style.display = "none";
+
+        // Clear the grid and progress
+        document.getElementById("grid").innerHTML = "";
+        document.getElementById("message").style.display = "none";
+        updateProgressBar();
+      }
+
       function showUserMessage(message) {
         const chatMessages = document.getElementById("chatMessages");
         const messageDiv = document.createElement("div");
@@ -696,15 +1618,34 @@
         messageDiv.textContent = message;
         chatMessages.appendChild(messageDiv);
         chatMessages.scrollTop = chatMessages.scrollHeight;
+
+        // Show typing indicator
+        document.getElementById("typingIndicator").style.display = "block";
       }
 
       function showAIMessage(message) {
+        // Hide typing indicator
+        document.getElementById("typingIndicator").style.display = "none";
+
         const chatMessages = document.getElementById("chatMessages");
         const messageDiv = document.createElement("div");
         messageDiv.className = "chat-message ai-message";
-        messageDiv.textContent = message;
+
+        // Add typing animation effect
+        let i = 0;
+        messageDiv.textContent = "";
         chatMessages.appendChild(messageDiv);
-        chatMessages.scrollTop = chatMessages.scrollHeight;
+
+        function typeWriter() {
+          if (i < message.length) {
+            messageDiv.textContent += message.charAt(i);
+            i++;
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+            setTimeout(typeWriter, 20);
+          }
+        }
+
+        typeWriter();
       }
 
       function generateAIGrid(totalAmount, days) {
@@ -721,7 +1662,7 @@
 
         for (let i = 1; i <= days; i++) {
           const cell = document.createElement("div");
-          cell.className = "grid-cell";
+          cell.className = `grid-cell ${currentShape}`;
 
           // Add extra 5 to early days if needed to reach total
           if (i <= extraDays) {
@@ -734,10 +1675,12 @@
             this.classList.toggle("saved");
             updateProgressBar();
             saveProgress();
+            updateGridCellTooltips();
           };
           grid.appendChild(cell);
         }
 
+        updateGridCellTooltips();
         updateProgressBar();
       }
 
@@ -784,88 +1727,201 @@
 
         // Get saving details
         const savingGoal = document.getElementById("savingGoal").value;
+        const messageText = document.getElementById("message").textContent;
+        const progressText =
+          document.getElementById("progressText").textContent;
+
+        // PDF dimensions
+        const pageWidth = 210;
+        const pageHeight = 297;
+        const margin = 20;
+        const usableWidth = pageWidth - 2 * margin;
 
         // Add a soft pink background
         doc.setFillColor(255, 245, 247);
-        doc.rect(0, 0, 210, 297, "F");
+        doc.rect(0, 0, pageWidth, pageHeight, "F");
 
         // Add decorative header
         doc.setFillColor(255, 77, 141);
-        doc.roundedRect(15, 15, 180, 35, 5, 5, "F");
+        doc.roundedRect(margin, margin, usableWidth, 25, 5, 5, "F");
 
         // Add title
         doc.setTextColor(255, 255, 255);
         doc.setFont("helvetica", "bold");
         doc.setFontSize(24);
-        doc.text("Savings Tracker", 105, 35, { align: "center" });
-
-        // Add saving goal details
-        doc.setTextColor(255, 77, 141);
-        doc.setFontSize(16);
-        doc.text("My Savings Challenge", 105, 65, { align: "center" });
-
-        // Add goal details with decorative box
-        doc.setFillColor(255, 255, 255);
-        doc.roundedRect(25, 70, 160, 30, 3, 3, "F");
-        doc.setFontSize(14);
-        doc.setTextColor(80, 80, 80);
-        doc.text(`Goal: $${Number(savingGoal).toLocaleString()}`, 105, 82, {
+        doc.text("Savings Tracker", pageWidth / 2, margin + 17, {
           align: "center",
         });
 
-        // Add motivational message
+        // Add saving goal details with decorative box
+        doc.setFillColor(255, 255, 255);
+        doc.roundedRect(margin, margin + 35, usableWidth, 40, 3, 3, "F");
+        doc.setFontSize(18);
+        doc.setTextColor(255, 77, 141);
+        doc.text("My Savings Goal", pageWidth / 2, margin + 45, {
+          align: "center",
+        });
+
+        // Add goal details with adjusted spacing
+        doc.setFontSize(12);
+        doc.setTextColor(80, 80, 80);
+        doc.text(messageText, pageWidth / 2, margin + 53, { align: "center" });
+        doc.text(progressText, pageWidth / 2, margin + 61, { align: "center" });
+
+        // Get grid data
+        const gridCells = document.querySelectorAll(".grid-cell");
+        const cellsPerRow = 5; // Reduced from 6 to 5 for better fit
+        const totalRows = Math.ceil(gridCells.length / cellsPerRow);
+
+        // Calculate cell dimensions
+        const cellWidth = (usableWidth - (cellsPerRow - 1) * 3) / cellsPerRow;
+        const cellHeight = 12;
+        const startX = margin;
+        let startY = margin + 85;
+        const padding = 3;
+        const maxRowsPerPage = 15;
+        let currentPage = 1;
+
+        // Function to add page header
+        function addPageHeader(pageNum) {
+          if (pageNum > 1) {
+            doc.addPage();
+            // Add background
+            doc.setFillColor(255, 245, 247);
+            doc.rect(0, 0, pageWidth, pageHeight, "F");
+            startY = margin + 20;
+          }
+
+          // Add grid section title
+          doc.setFillColor(255, 77, 141);
+          doc.setTextColor(255, 255, 255);
+          doc.roundedRect(margin, startY - 15, usableWidth, 12, 3, 3, "F");
+          doc.setFontSize(12);
+          doc.text(`Daily Savings Grid`, pageWidth / 2, startY - 6, {
+            align: "center",
+          });
+        }
+
+        // Add initial page header
+        addPageHeader(1);
+
+        // Draw grid cells
+        gridCells.forEach((cell, index) => {
+          const currentRow = Math.floor(index / cellsPerRow);
+          const col = index % cellsPerRow;
+
+          // Check if we need a new page
+          if (currentRow > 0 && currentRow % maxRowsPerPage === 0) {
+            currentPage++;
+            addPageHeader(currentPage);
+          }
+
+          // Calculate position
+          const adjustedRow = currentRow % maxRowsPerPage;
+          const x = startX + col * (cellWidth + padding);
+          const y = startY + adjustedRow * (cellHeight + padding);
+
+          // Add cell background
+          if (cell.classList.contains("saved")) {
+            doc.setFillColor(255, 77, 141);
+          } else {
+            doc.setFillColor(255, 255, 255);
+          }
+          doc.roundedRect(x, y, cellWidth, cellHeight, 2, 2, "F");
+
+          // Add cell border
+          doc.setDrawColor(255, 77, 141);
+          doc.roundedRect(x, y, cellWidth, cellHeight, 2, 2, "D");
+
+          // Add cell text
+          doc.setFontSize(9);
+          if (cell.classList.contains("saved")) {
+            doc.setTextColor(255, 255, 255);
+            // Center the checkmark and amount in saved cells
+            doc.text(cell.textContent, x + cellWidth / 2, y + cellHeight / 2, {
+              align: "center",
+            });
+          } else {
+            doc.setTextColor(80, 80, 80);
+            doc.text(cell.textContent, x + cellWidth / 2, y + cellHeight / 2, {
+              align: "center",
+            });
+          }
+
+          // Add day number
+          doc.setFontSize(7);
+          doc.setTextColor(150, 150, 150);
+          doc.text(`Day ${index + 1}`, x + cellWidth / 2, y + cellHeight - 2, {
+            align: "center",
+          });
+        });
+
+        // Add progress tracking section on the last page
+        const lastY =
+          startY +
+          Math.min(
+            maxRowsPerPage,
+            totalRows - (currentPage - 1) * maxRowsPerPage
+          ) *
+            (cellHeight + padding) +
+          10;
+
+        // Add progress tracking box
+        doc.setFillColor(255, 255, 255);
+        doc.roundedRect(margin, lastY, usableWidth, 35, 3, 3, "F");
+
+        // Add progress tracking title
         doc.setFontSize(12);
         doc.setTextColor(255, 77, 141);
+        doc.text("Progress Tracking", pageWidth / 2, lastY + 12, {
+          align: "center",
+        });
+
+        // Add date fields
+        doc.setFontSize(10);
+        doc.setTextColor(80, 80, 80);
+        doc.text("Start Date: _____________", margin + 30, lastY + 25);
         doc.text(
-          "Track your progress by marking each box as you save!",
-          105,
-          110,
+          "Target End Date: _____________",
+          margin + usableWidth - 30,
+          lastY + 25,
+          { align: "right" }
+        );
+
+        // Add motivational message
+        const messageY = lastY + 45;
+        doc.setFillColor(255, 209, 220);
+        doc.roundedRect(margin, messageY, usableWidth, 20, 3, 3, "F");
+        doc.setTextColor(255, 77, 141);
+        doc.setFontSize(10);
+        doc.text(
+          "You're on your way to achieving your savings goal!",
+          pageWidth / 2,
+          messageY + 8,
+          { align: "center" }
+        );
+        doc.text("Keep up the great work! 💪", pageWidth / 2, messageY + 15, {
+          align: "center",
+        });
+
+        // Add footer
+        doc.setTextColor(150, 150, 150);
+        doc.setFontSize(8);
+        doc.text(
+          "Generated by Savings Tracker - Your Path to Financial Success",
+          pageWidth / 2,
+          pageHeight - 15,
+          { align: "center" }
+        );
+        doc.text(
+          new Date().toLocaleDateString(),
+          pageWidth / 2,
+          pageHeight - 10,
           { align: "center" }
         );
 
-        // Add grid with better styling
-        let gridElement = document.getElementById("grid");
-        html2canvas(gridElement, {
-          scale: 2,
-          backgroundColor: null,
-        }).then((canvas) => {
-          let imgData = canvas.toDataURL("image/png");
-          let imgWidth = 160;
-          let imgHeight = (canvas.height * imgWidth) / canvas.width;
-
-          // Add a white background rectangle with rounded corners for the grid
-          doc.setFillColor(255, 255, 255);
-          doc.roundedRect(25, 115, 160, imgHeight + 10, 3, 3, "F");
-
-          // Add the grid image
-          doc.addImage(imgData, "PNG", 25, 120, imgWidth, imgHeight);
-
-          // Add progress tracking section
-          doc.setFillColor(255, 255, 255);
-          doc.roundedRect(25, 120 + imgHeight + 15, 160, 30, 3, 3, "F");
-          doc.setFontSize(12);
-          doc.setTextColor(80, 80, 80);
-          doc.text("Progress Tracking", 105, 120 + imgHeight + 30, {
-            align: "center",
-          });
-          doc.text(
-            "Start Date: _____________  Target End Date: _____________",
-            105,
-            120 + imgHeight + 40,
-            { align: "center" }
-          );
-
-          // Add footer with decorative elements
-          doc.setFillColor(255, 77, 141);
-          doc.setFontSize(10);
-          doc.setTextColor(153, 153, 153);
-          doc.text("* Generated with love by Savings Tracker *", 105, 277, {
-            align: "center",
-          });
-
-          // Save the PDF
-          doc.save("my-savings-plan.pdf");
-        });
+        // Save the PDF
+        doc.save("my-savings-plan.pdf");
       }
 
       function saveProgress() {
@@ -937,34 +1993,75 @@
           });
       }
 
-      function clearChat() {
-        // Clear all messages
-        const chatMessages = document.getElementById("chatMessages");
-        chatMessages.innerHTML = "";
+      function showColorPreview(color) {
+        const preview = document.getElementById("colorPreview");
+        const previewBox = document.getElementById("colorPreviewBox");
+        const previewText = document.getElementById("colorPreviewText");
 
-        // Add back the initial greeting
-        const greeting = document.createElement("div");
-        greeting.className = "chat-message ai-message";
-        greeting.textContent =
-          "Hi! I'm SynAI 👋 I'm here to help you save money and achieve your financial goals! What would you like to save for?";
-        chatMessages.appendChild(greeting);
+        previewBox.style.backgroundColor = color;
+        previewText.textContent = `Selected: ${color}`;
+        preview.style.display = "flex";
 
-        // Clear the input field
-        document.getElementById("savingGoal").value = "";
+        // Hide preview after 2 seconds
+        setTimeout(() => {
+          preview.style.display = "none";
+        }, 2000);
+      }
 
-        // Reset any active states
-        if (isListening) {
-          stopVoiceInput();
-        }
+      // Add tooltips for grid cells
+      function updateGridCellTooltips() {
+        const cells = document.querySelectorAll(".grid-cell");
+        cells.forEach((cell) => {
+          const amount = cell.textContent;
+          cell.setAttribute("data-tooltip", `Click to mark ${amount} as saved`);
+          if (cell.classList.contains("saved")) {
+            cell.setAttribute("data-tooltip", `Click to unmark ${amount}`);
+          }
+        });
+      }
 
-        // Hide typing indicator if visible
-        document.getElementById("typingIndicator").style.display = "none";
+      function selectShape(shape) {
+        currentShape = shape;
+
+        // Update active state of shape buttons
+        document.querySelectorAll(".shape-btn").forEach((btn) => {
+          btn.classList.toggle(
+            "active",
+            btn.getAttribute("data-shape") === shape
+          );
+        });
+
+        // Update all grid cells with new shape
+        const gridCells = document.querySelectorAll(".grid-cell");
+        gridCells.forEach((cell) => {
+          // Remove all shape classes
+          cell.classList.remove(
+            "square",
+            "circle",
+            "envelope",
+            "star",
+            "heart"
+          );
+          // Add new shape class
+          cell.classList.add(shape);
+        });
+
+        // Save shape preference
+        localStorage.setItem("savedShape", shape);
       }
 
       // Add event listener for page load
       document.addEventListener("DOMContentLoaded", function () {
         loadProgress();
         initSpeechRecognition();
+        loadSavedColors();
+        switchColorType("unsaved");
+
+        // Load saved shape preference
+        const savedShape = localStorage.getItem("savedShape");
+        if (savedShape) {
+          selectShape(savedShape);
+        }
       });
     </script>
   </body>
