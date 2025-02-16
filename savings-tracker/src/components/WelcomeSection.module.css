@@ -1,0 +1,117 @@
+.welcomeSection {
+  background: white;
+  border-radius: 30px;
+  padding: 30px;
+  margin-bottom: 30px;
+  box-shadow: 0 10px 30px rgba(255, 77, 141, 0.15);
+}
+
+.welcomeHeader {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.welcomeHeader h1 {
+  color: #ff4d8d;
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.welcomeSubtitle {
+  color: #666;
+  font-size: 18px;
+  margin: 0;
+}
+
+.quickStartSection {
+  padding: 20px;
+  background: rgba(255, 245, 247, 0.5);
+  border-radius: 20px;
+}
+
+.guideHeader {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.guideHeader i {
+  font-size: 24px;
+  color: #ff4d8d;
+}
+
+.guideHeader h3 {
+  color: #ff4d8d;
+  font-size: 24px;
+  margin: 0;
+}
+
+.guideSubtitle {
+  color: #666;
+  font-size: 14px;
+  margin: 0;
+}
+
+.stepsContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.step {
+  background: white;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(255, 77, 141, 0.1);
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+}
+
+.stepIcon {
+  width: 48px;
+  height: 48px;
+  min-width: 48px;
+  background: #ff4d8d;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 24px;
+}
+
+.stepContent {
+  flex: 1;
+}
+
+.stepContent h4 {
+  color: #ff4d8d;
+  margin: 0 0 8px 0;
+  font-size: 18px;
+}
+
+.stepContent p {
+  color: #666;
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+@media screen and (max-width: 768px) {
+  .stepsContainer {
+    grid-template-columns: 1fr;
+  }
+
+  .step {
+    padding: 15px;
+  }
+
+  .stepIcon {
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    font-size: 20px;
+  }
+}

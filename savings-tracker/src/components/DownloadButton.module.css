@@ -1,0 +1,35 @@
+.buttonContainer {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin: 30px 0;
+}
+
+.downloadButton {
+  cursor: pointer;
+  background: linear-gradient(135deg, #ff4d8d 0%, #ff6b9c 100%);
+  color: white;
+  border: none;
+  border-radius: 30px;
+  padding: 15px 30px;
+  font-size: 16px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(255, 77, 141, 0.2);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.downloadButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(255, 77, 141, 0.3);
+}
+
+.downloadButton:active {
+  transform: translateY(1px);
+}
+
+.downloadButton i {
+  font-size: 18px;
+}

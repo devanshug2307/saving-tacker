@@ -1,0 +1,143 @@
+.customizationContainer {
+  margin-top: 30px;
+  padding: 25px;
+  background: white;
+  border-radius: 25px;
+  box-shadow: 0 5px 20px rgba(255, 77, 141, 0.1);
+}
+
+.sectionTitle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.sectionTitle i {
+  font-size: 24px;
+  color: #ff4d8d;
+}
+
+.sectionTitle h3 {
+  color: #ff4d8d;
+  margin: 0;
+  font-size: 20px;
+}
+
+.colorSection,
+.shapeSection {
+  padding: 20px;
+  background: rgba(255, 245, 247, 0.5);
+  border-radius: 20px;
+  margin-bottom: 20px;
+}
+
+.colorTypeSwitch {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.colorTypeBtn {
+  padding: 12px 25px;
+  border: none;
+  border-radius: 15px;
+  background: transparent;
+  color: #ff4d8d;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.colorTypeBtn.active {
+  background: white;
+  box-shadow: 0 3px 10px rgba(255, 77, 141, 0.15);
+}
+
+.colorOptions {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+  gap: 15px;
+  margin: 20px 0;
+}
+
+.colorOption {
+  width: 50px;
+  height: 50px;
+  border-radius: 15px;
+  border: 3px solid transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin: auto;
+}
+
+.colorOption:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.colorOption.selected {
+  border-color: #ff4d8d;
+  transform: scale(1.1);
+}
+
+.customColorInput {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.customColorInput input[type="color"] {
+  width: 70px;
+  height: 40px;
+  padding: 5px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  background: white;
+  box-shadow: 0 3px 10px rgba(255, 77, 141, 0.1);
+}
+
+.shapeOptions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+}
+
+.shapeBtn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 15px 25px;
+  border: 2px solid transparent;
+  border-radius: 15px;
+  background: white;
+  color: #ff4d8d;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.shapeBtn i {
+  font-size: 24px;
+}
+
+.shapeBtn span {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.shapeBtn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(255, 77, 141, 0.2);
+}
+
+.shapeBtn.active {
+  border-color: #ff4d8d;
+  background: rgba(255, 77, 141, 0.1);
+} 

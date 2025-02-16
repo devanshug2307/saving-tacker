@@ -1,0 +1,116 @@
+.inputContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+  margin: 25px 0;
+  padding: 0 15px;
+  position: relative;
+}
+
+.inputContainer::before {
+  content: "💭";
+  position: absolute;
+  left: 25px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 20px;
+  z-index: 1;
+}
+
+.inputContainer input {
+  flex: 1;
+  min-width: 200px;
+  padding: 15px 25px 15px 55px;
+  border: 2px solid rgba(255, 77, 141, 0.2);
+  border-radius: 30px;
+  outline: none;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  background: white;
+}
+
+.inputContainer input:focus {
+  border-color: #ff4d8d;
+  box-shadow: 0 0 0 4px rgba(255, 77, 141, 0.1);
+}
+
+.voiceBtn {
+  width: 50px !important;
+  height: 50px !important;
+  padding: 0 !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  border-radius: 50% !important;
+  background: linear-gradient(135deg, #ff4d8d 0%, #ff6b9c 100%);
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(255, 77, 141, 0.2);
+}
+
+.voiceBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(255, 77, 141, 0.3);
+}
+
+.voiceBtn.listening {
+  animation: pulseRing 1.5s infinite;
+}
+
+.message {
+  color: #ff4d8d;
+  font-size: 18px;
+  font-weight: 600;
+  padding: 20px;
+  margin: 25px 0;
+  background: rgba(255, 209, 220, 0.2);
+  border-radius: 20px;
+  line-height: 1.6;
+  border-left: 5px solid #ff4d8d;
+  animation: slideIn 0.5s ease;
+}
+
+@keyframes pulseRing {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 77, 141, 0.5);
+  }
+  70% {
+    box-shadow: 0 0 0 15px rgba(255, 77, 141, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 77, 141, 0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .inputContainer input {
+    font-size: 13px;
+    padding: 8px 12px 8px 45px;
+  }
+
+  .inputContainer::before {
+    left: 20px;
+    font-size: 16px;
+  }
+
+  .voiceBtn {
+    width: 40px !important;
+    height: 40px !important;
+    font-size: 16px;
+  }
+}

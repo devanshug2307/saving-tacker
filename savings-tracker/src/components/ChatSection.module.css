@@ -1,0 +1,149 @@
+.chatContainer {
+  max-width: 600px;
+  margin: 30px auto;
+  padding: 20px;
+  background: white;
+  border-radius: 25px;
+  box-shadow: 0 5px 20px rgba(255, 77, 141, 0.1);
+}
+
+.chatHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background: rgba(255, 77, 141, 0.1);
+  border-radius: 15px 15px 0 0;
+  margin-bottom: 15px;
+}
+
+.chatHeader h3 {
+  color: #ff4d8d;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.clearChatBtn {
+  background-color: #ff4d8d;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 8px 15px;
+  font-size: 14px;
+  cursor: pointer;
+  margin-top: 15px;
+  transition: all 0.3s ease;
+  opacity: 0.8;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-left: auto;
+}
+
+.clearChatBtn:hover {
+  opacity: 1;
+  transform: translateY(-2px);
+}
+
+.clearChatBtn i {
+  font-size: 12px;
+}
+
+.chatMessages {
+  margin: 15px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.chatMessage {
+  margin: 15px 0;
+  padding: 15px 20px;
+  border-radius: 20px;
+  max-width: 85%;
+  position: relative;
+  animation: messageSlide 0.3s ease;
+}
+
+.aiMessage {
+  background: linear-gradient(135deg, #ffd1dc 0%, #ffe4e9 100%);
+  margin-right: auto;
+  color: #ff4d8d;
+  border-bottom-left-radius: 5px;
+}
+
+.userMessage {
+  background: linear-gradient(135deg, #ff4d8d 0%, #ff6b9c 100%);
+  color: white;
+  margin-left: auto;
+  border-bottom-right-radius: 5px;
+}
+
+.examplePrompts {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.examplePrompt {
+  background: rgba(255, 255, 255, 0.5);
+  padding: 10px 15px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 14px;
+  color: #ff4d8d;
+}
+
+.examplePrompt:hover {
+  background: rgba(255, 255, 255, 0.8);
+  transform: translateX(5px);
+}
+
+.typingIndicator {
+  padding: 10px;
+  display: flex;
+  gap: 3px;
+  justify-content: center;
+}
+
+.typingIndicator span {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background: #ff4d8d;
+  border-radius: 50%;
+  animation: typing 1s infinite;
+}
+
+.typingIndicator span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.typingIndicator span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes typing {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes messageSlide {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

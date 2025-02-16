@@ -1,0 +1,47 @@
+.savingsTrackerContainer {
+  font-family: "Segoe UI", Arial, sans-serif;
+  text-align: center;
+  background: linear-gradient(135deg, #fff5f7 0%, #ffe4e9 100%);
+  padding: 20px;
+  min-height: 100vh;
+  margin: 0;
+}
+
+.container {
+  width: 95%;
+  max-width: 800px;
+  margin: auto;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 25px;
+  border-radius: 30px;
+  box-shadow: 0 10px 30px rgba(255, 77, 141, 0.15);
+  backdrop-filter: blur(10px);
+  transition: transform 0.3s ease;
+}
+
+.container:hover {
+  transform: translateY(-5px);
+}
+
+/* Mobile styles (up to 480px) */
+@media screen and (max-width: 480px) {
+  .container {
+    padding: 15px;
+  }
+}
+
+/* Tablet styles (481px to 768px) */
+@media screen and (min-width: 481px) and (max-width: 768px) {
+  .container {
+    padding: 20px;
+  }
+}
+
+/* Desktop styles (769px and above) */
+@media screen and (min-width: 769px) {
+  .container {
+    padding: 25px;
+  }
+}
+
+/* Add other styles from the original CSS... */
